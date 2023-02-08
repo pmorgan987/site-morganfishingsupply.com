@@ -1,0 +1,24 @@
+{
+  "liveSassCompile.settings.watchOnLaunch": true,
+  "liveSassCompile.settings.forceBaseDirectory": "",
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/"
+    },
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "/"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "editor.tabSize": 2,
+  "tabnine.experimentalAutoImports": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.printWidth": 600,
+  "minify.minifyExistingOnSave": true,
+  "liveSassCompile.settings.autoprefix": []
+}

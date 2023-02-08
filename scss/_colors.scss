@@ -1,0 +1,41 @@
+// Possible Palette, currently unused, just saving here
+$darkblue: #012360;
+$teal: #65acb5;
+$blue1: #0162ad;
+$blue2: #014aa2;
+$green: #036a29;
+
+// Colors
+$clr-text-primary-light: #fff;
+$clr-text-primary-dark: #333;
+$clr-background-primary-light: #f8f0e3;
+$clr-background-primary-dark: $blue2;
+$clr-links-primary-light: #fff;
+$clr-links-primary-dark: #00ff;
+
+// Mixins
+@mixin set-color-scheme($color_scheme) {
+  @if ($color_scheme == "dark") {
+    background-color: $clr-background-primary-dark;
+    color: $clr-text-primary-light;
+    a {
+      color: $clr-links-primary-light;
+    }
+  } @else {
+    background-color: $clr-background-primary-light;
+    color: $clr-text-primary-dark;
+    a {
+      color: $clr-links-primary-dark;
+    }
+  }
+}
+
+@mixin set-color-scheme-card($color_scheme) {
+  @if ($color_scheme == "dark") {
+    background-color: rgb(#ccc, 0.3);
+  } @else {
+    background-color: #aaa;
+  }
+  color: $clr-text-primary-light;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}

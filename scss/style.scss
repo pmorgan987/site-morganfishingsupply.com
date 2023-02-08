@@ -1,0 +1,257 @@
+@import "colors";
+@import "fonts";
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+body {
+  font-family: $ff-text;
+}
+h1,
+h2,
+h3 {
+  font-family: $ff-heading;
+  margin: 2em;
+  text-align: center;
+  font-size: 2em;
+}
+p {
+  margin: 1.5em;
+  line-height: 1.7;
+}
+
+.img-fluid {
+  max-width: 100%;
+  display: block;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+// Main Header
+#main_header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+
+  .logo {
+    width: 200px;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row; // Default, but might change it later for mobile
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 1em 0;
+    justify-content: space-around;
+
+    a {
+      display: inline-block;
+      padding: 0.5em;
+      text-decoration: none;
+      color: $clr-links-primary-dark;
+      font-size: 1.2em;
+      font-family: $ff-text;
+
+      &:hover,
+      &:focus {
+        background-color: lighten($clr-links-primary-dark, 45%);
+        border-radius: 1em;
+      }
+    }
+  }
+}
+
+section {
+  min-height: 100vh;
+  padding: 0.5em;
+}
+
+// Hero section
+#hero {
+  background-image: url(../images/hero-bg.webp);
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: top;
+}
+
+// Featured section
+#featured {
+  min-height: 50vh;
+  @include set-color-scheme(light);
+  padding: 1em;
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    flex-direction: row;
+
+    .card {
+      flex: 1;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ccc;
+      align-items: center;
+      font-family: $ff-text;
+      line-height: 2em;
+
+      img {
+        width: 200px;
+        padding: 2em;
+      }
+    }
+  }
+}
+
+#vendors {
+  $color_scheme: dark;
+  @include set-color-scheme($color_scheme);
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 3em;
+    margin: 2em auto;
+
+    .card {
+      @include set-color-scheme-card($color_scheme);
+      padding: 2em;
+      border-radius: 1em;
+
+      .card__title {
+        font-family: $ff-heading;
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-bottom: 2em;
+        text-align: center;
+      }
+
+      .card__body {
+        text-align: center;
+
+        ul {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          li {
+            list-style: none;
+            padding: 1em;
+            margin: 0.5em;
+            background-color: rgba(#444, 50%);
+            border-radius: 0.5em;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+}
+
+#shipping {
+  $color_scheme: light;
+  @include set-color-scheme($color_scheme);
+}
+
+#ordering {
+  $color_scheme: dark;
+  @include set-color-scheme($color_scheme);
+}
+
+#contact {
+  $color_scheme: light;
+  @include set-color-scheme($color_scheme);
+  form {
+    width: 100%;
+  }
+  .row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    margin-bottom: 20px;
+  }
+  label {
+    color: #1c093c;
+  }
+  textarea,
+  input:not([type="submit"]) {
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+  }
+  textarea {
+    resize: none;
+  }
+  textarea:focus,
+  input:focus {
+    outline: none;
+    border-color: #6f6df4;
+  }
+  input[name="contact_submit"] {
+    border: none;
+    padding: 10px 20px;
+    background: linear-gradient(130deg, #6f6df4, #4c46f5);
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  input[name="contact_submit"]:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .contact_form_message {
+    padding: 1em;
+    margin: 1em auto;
+    color: #fff;
+    opacity: 0;
+  }
+  .contact_form_message.error {
+    background-color: #ff9494;
+    // opacity: 1;
+    animation: fadeinout 5s linear;
+  }
+  .contact_form_message.success {
+    background-color: #4bb543;
+    // opacity: 1;
+    animation: fadeinout 5s linear;
+  }
+
+  @keyframes fadeinout {
+    0%,
+    10%,
+    90%,
+    100% {
+      opacity: 0;
+    }
+    11%,
+    89% {
+      opacity: 1;
+    }
+  }
+}
+
+footer {
+  @include set-color-scheme(dark);
+  text-align: center;
+  padding: 2em;
+}
